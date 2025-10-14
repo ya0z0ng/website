@@ -1,0 +1,61 @@
+---
+import astroLogo from "../assets/astro.svg";
+import background from "../assets/background.svg";
+import Check from "./Check.astro";
+import Dialog from "./Dialog.astro";
+import Input from "./Input.astro";
+import Switch from "./Switch.astro";
+---
+
+<div id="container" class="p-[20px]">
+	<section>
+		<h3>Button</h3>
+		<button>Button Click</button>
+		<button class="intent-primary">Button Click</button>
+		<button class="intent-success">Button Click</button>
+		<button class="intent-warning">Button Click</button>
+		<button class="intent-danger">Button Click</button>
+		<button class="style-minimal">Button Click</button>
+		<button class="intent-primary style-minimal">Button Click</button>
+		<button class="intent-success style-minimal">Button Click</button>
+		<button class="intent-warning style-minimal">Button Click</button>
+		<button class="intent-danger style-minimal">Button Click</button>
+	</section>
+	<section>
+		<h3>Tag</h3>
+		<span class="dbs-tag">New York</span>
+		<span class="dbs-tag intent-primary style-minimal">New York</span>
+		<span class="dbs-tag intent-success">New York</span>
+		<span class="dbs-tag intent-warning style-rounded style-minimal"
+			>New York</span
+		>
+		<span class="dbs-tag intent-danger">New York</span>
+	</section>
+	<section>
+		<h3>Progress</h3>
+		<span class="dbs-progress-bar w-[100px]"></span>
+		<span class="dbs-progress-bar intent-primary w-[100px]"></span>
+		<span class="dbs-progress-bar intent-warning w-[100px]"></span>
+	</section>
+	<section>
+		<h3>Switch</h3>
+		<Switch>some message</Switch>
+	</section>
+	<section>
+		<h3>Check</h3>
+		<Check>some message</Check>
+	</section>
+	<section>
+		<h3>Input</h3>
+		<Input>some message</Input>
+		<Input class:list="intent-danger">some message</Input>
+		<Input class:list="intent-warning">some message</Input>
+	</section>
+	<section>
+		<h3>Dialog</h3>
+		<label for="dialog-example">Open Dialog</label>
+		<Dialog id="dialog-example" closeOutside={false}>
+			<p>This is an example dialog content.</p>
+		</Dialog>
+	</section>
+</div>

@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+    --*: initial;
+
+    --color-dbs-bg: light-dark(var(--light-gray5), var(--dark-gray1));
+    --color-dbs-bg2: light-dark(white, var(--dark-gray3));
+}

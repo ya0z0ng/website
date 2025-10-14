@@ -1,0 +1,102 @@
+---
+const { class: className, ...rest } = Astro.props;
+---
+
+<div {...rest} class:list={["component-input", className]}>
+    <span aria-hidden="true" tabindex="-1"></span>
+    <input type="text" />
+</div>
+
+<style lang="less">
+    div.component-input {
+        & > input {
+            --spread-dbs-input-shadow1: 0;
+            --spread-dbs-input-shadow2: 0;
+            --blur-dbs-input-shadow3: 0;
+            --color-dbs-input-shadow1: hsl(from var(--color-blue3) h s l / 0);
+            --color-dbs-input-shadow2: hsl(from var(--color-blue3) h s l / 0);
+            --color-dbs-input-shadow3: hsl(
+                from light-dark(var(--color-black), var(--color-white)) h s l /
+                    0.2
+            );
+            --color-dbs-input-shadow4: light-dark(
+                hsl(from var(--color-black) h s l / 0.3),
+                hsl(from var(--color-white) h s l / 0.15)
+            );
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: light-dark(
+                var(--color-white),
+                hsl(from var(--color-black) h s l / 0.3)
+            );
+            border: none;
+            border-radius: 2px;
+            box-shadow:
+                0 0 0 var(--spread-dbs-input-shadow1)
+                    var(--color-dbs-input-shadow1),
+                0 0 0 var(--spread-dbs-input-shadow2)
+                    var(--color-dbs-input-shadow2),
+                inset 0 0 var(--blur-dbs-input-shadow3) 1px
+                    var(--color-dbs-input-shadow3),
+                inset 0 1px 1px var(--color-dbs-input-shadow4);
+            color: light-dark(var(--color-black), var(--color-white));
+            font-size: 14px;
+            font-weight: 400;
+            height: 30px;
+            line-height: 30px;
+            outline: none;
+            padding: 0 10px;
+            margin: 2px;
+            transition: box-shadow 0.1s cubic-bezier(0.4, 1, 0.75, 0.9);
+            vertical-align: middle;
+
+            &:focus {
+                --blur-dbs-input-shadow3: 1px;
+                --spread-dbs-input-shadow1: 1px;
+                --spread-dbs-input-shadow2: 2px;
+                --color-dbs-input-shadow1: var(--color-blue3);
+                --color-dbs-input-shadow2: var(--color-blue3);
+                --color-dbs-input-shadow3: hsl(
+                    from var(--color-black) h s l / 0.2
+                );
+            }
+
+            &::placeholder {
+                color: var(--text-placeholder);
+                opacity: 1;
+            }
+
+            &:disabled {
+                background-color: var(--input-bg-disabled);
+                border-color: var(--input-border-disabled);
+                color: var(--text-disabled);
+                cursor: not-allowed;
+            }
+        }
+
+        &.intent-warning > input {
+            --color-dbs-input-shadow3: var(--color-orange3);
+            &:focus {
+                --spread-dbs-input-shadow2: 2px;
+                --color-dbs-input-shadow1: var(--color-orange3);
+                --color-dbs-input-shadow2: var(--color-orange3);
+                --color-dbs-input-shadow3: hsl(
+                    from var(--color-black) h s l / 0.2
+                );
+            }
+        }
+
+        &.intent-danger > input {
+            --color-dbs-input-shadow3: var(--color-red3);
+            &:focus {
+                --spread-dbs-input-shadow2: 2px;
+                --color-dbs-input-shadow1: var(--color-red3);
+                --color-dbs-input-shadow2: var(--color-red3);
+                --color-dbs-input-shadow3: hsl(
+                    from var(--color-black) h s l / 0.2
+                );
+            }
+        }
+    }
+</style>
