@@ -1,10 +1,11 @@
 ---
 interface Props {
     id: string;
+    title?: string;
     closeOutside?: boolean;
 }
 
-const { id, closeOutside } = Astro.props;
+const { id, closeOutside, title } = Astro.props;
 const shouldCloseOutside = closeOutside === false ? "" : id;
 ---
 
@@ -12,8 +13,8 @@ const shouldCloseOutside = closeOutside === false ? "" : id;
     <input type="checkbox" id={id} hidden />
     <label for={shouldCloseOutside}></label>
     <main>
-        <label for={id}>&times;</label>
-        <slot />
+        <header><span>{title}</span><label for={id}>&times;</label></header>
+        <div><slot /></div>
     </main>
 </div>
 
@@ -44,78 +45,78 @@ const shouldCloseOutside = closeOutside === false ? "" : id;
                 position: fixed;
                 left: 50%;
                 top: 50%;
-                transform: translate(-50%, -48%) scale(1.02);
-                background: #fff;
-                border-radius: 12px;
-                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
-                padding: 32px 24px;
-                min-width: 300px;
-                max-width: 90vw;
+                transform: translate(-50%, -48%) scale(1);
+                margin: 32px 0;
                 opacity: 0;
                 pointer-events: none;
                 transition:
                     opacity 0.2s,
                     transform 0.2s;
                 z-index: 1000;
-                & > label {
-                    position: absolute;
-                    right: 18px;
-                    top: 12px;
-                    font-size: 2rem;
-                    color: #888;
-                    cursor: pointer;
-                    user-select: none;
+                background: light-dark(var(--light-gray5), var(--dark-gray1));
+                border-radius: 4px;
+                display: flex;
+                flex-direction: column;
+                margin: 32px 0;
+                pointer-events: all;
+                user-select: text;
+                box-shadow:
+                    inset 0 0 0 1px
+                        light-dark(
+                            hsl(from var(--color-black) h s l / 0.1),
+                            hsl(from var(--color-white) h s l / 0.2)
+                        ),
+                    0 2px 4px
+                        light-dark(
+                            hsl(from var(--color-black) h s l / 0.2),
+                            hsl(from var(--color-black) h s l / 0.4)
+                        ),
+                    0 8px 24px
+                        light-dark(
+                            hsl(from var(--color-black) h s l / 0.2),
+                            hsl(from var(--color-black) h s l / 0.4)
+                        );
+
+                & > header {
+                    align-items: center;
+                    background: light-dark(
+                        var(--color-white),
+                        var(--dark-gray3)
+                    );
+                    border-radius: 4px 4px 0 0;
+                    box-shadow: inset 0 0 0 1px
+                        light-dark(
+                            hsl(from var(--color-black) h s l / 0.15),
+                            hsl(from var(--color-white) h s l / 0.2)
+                        );
+                    display: flex;
+                    flex: 0 0 auto;
+                    min-height: 38px;
+                    padding: 4px 4px 4px 16px;
+                    z-index: 0;
+                    & > span {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        word-wrap: normal;
+                        flex: 1 1 auto;
+                        line-height: inherit;
+                        margin: 0;
+                    }
+                    & > label {
+                        padding: 4px 8px;
+                        user-select: none;
+                        cursor: pointer;
+                        color: light-dark(
+                            var(--dark-gray1),
+                            var(--light-gray5)
+                        );
+                    }
+                    & + div {
+                        padding: 16px;
+                    }
                 }
             }
         }
-    }
-    /* Modal Overlay */
-    #modal-toggle:checked + .modal-overlay {
-        opacity: 1;
-        pointer-events: auto;
-    }
-    .modal-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.4);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.2s;
-        z-index: 1000;
-    }
-
-    /* Modal 本體 */
-    #modal-toggle:checked ~ .modal {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0);
-    }
-    .modal {
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -48%) scale(1.02);
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
-        padding: 32px 24px;
-        min-width: 300px;
-        max-width: 90vw;
-        opacity: 0;
-        pointer-events: none;
-        transition:
-            opacity 0.2s,
-            transform 0.2s;
-        z-index: 1001;
-    }
-
-    .modal-close {
-        position: absolute;
-        right: 18px;
-        top: 12px;
-        font-size: 2rem;
-        color: #888;
-        cursor: pointer;
-        user-select: none;
     }
 </style>
