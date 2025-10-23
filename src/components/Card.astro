@@ -8,18 +8,27 @@ const { image, imageAlt, title } = Astro.props;
 import { Image } from "astro:assets";
 ---
 
-<div class="ss-card">
+<div class="card">
     <Image src={image} alt={imageAlt} width={680} height={528} />
-    <span class="ss-title">{title}</span>
+    <span class="title">{title}</span>
 </div>
 
 <style lang="less">
-    .ss-card {
+    .card {
         overflow: hidden;
-        background-color: var(--color-primary);
+        background-color: light-dark(var(--color-white), var(--color-black));
         border-radius: 12px;
         width: 200px;
         height: 250px;
         box-shadow: 2px 4px 12px hsl(from var(--color-black) h s l / 0.08);
+        transition: all 0.3s cubic-bezier(0, 0, 0.5, 1);
+        &:hover {
+            box-shadow: 2px 4px 16px #00000029;
+            transform: scale3d(1.01, 1.01, 1.01);
+            background-color: light-dark(
+                var(--color-white),
+                var(--color-black3)
+            );
+        }
     }
 </style>

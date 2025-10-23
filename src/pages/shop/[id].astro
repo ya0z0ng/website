@@ -2,61 +2,171 @@
 const { id } = Astro.params;
 export const prerender = false; // Not needed in 'server' mode
 import ShopSample from "../../layouts/ShopSample.astro";
+import Image from "astro/components/Image.astro";
+import iphone17pro from "../../assets/images/iphone17pro.png";
 ---
 
 <ShopSample>
     <div slot="sidebar">Shop Sidebar</div>
 
-    <div class="content">
-        <div
-            class="item-product-info flex gap-ss-gloabl-padding max-labtop:flex-col"
-        >
-            <div
-                class="item-image top-ss-gloabl-padding labtop:sticky self-start"
-            >
+    <div class="content divide-y divide-border divide-y-gap-paddingx2">
+        <div class="item-product-info flex gap-paddingx2 max-pad:flex-col">
+            <div class="item-image top-paddingx2 pad:sticky self-start">
                 <img
                     src="https://www.apple.com/v/iphone-air/c/images/specs/hero_iphone__cpn1mdefarma_large_2x.jpg"
                     alt=""
                 />
             </div>
-            <div class="item-selection basis-golden-ratio shrink-0">
-                <h2>
-                    Logitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
-                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
-                    250h Battery Life, On-Board Memory, PC/Mac - Black
-                </h2>
-                <div class="price-info">Price details</div>
-                <div class="technical-info">Technical Details Logitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
-                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
-                    250h Battery Life, On-Board Memory, PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
-                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
-                    250h Battery Life, On-Board Memory, PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
-                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
-                    250h Battery Life, On-Board Memory, PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
-                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
-                    250h Battery Life, On-Board Memory, PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
-                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
-                    250h Battery Life, On-Board Memory, PC/Mac - Black</div>
-                <div class="category-info">Category Details Logitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
-                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
-                    250h Battery Life, On-Board Memory, PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
-                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
-                    250h Battery Life, On-Board Memory, PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
-                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
-                    250h Battery Life, On-Board Memory, PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
-                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
-                    250h Battery Life, On-Board Memory, PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
-                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
-                    250h Battery Life, On-Board Memory, PC/Mac - Black</div>
+            <div
+                class="item-selection basis-golden-ratio shrink-0 divide-y divide-border divide-y-gap-padding"
+            >
+                <span>
+                    <h2 class="line-clamp-2 mb-[13px]">
+                        Logitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
+                        Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
+                        250h Battery Life, On-Board Memory, PC/Mac - Black
+                    </h2>
+                </span>
+                <div class="price-info">
+                    From $1099 or $45.79/mo.per month for 24 mo.months Footnote
+                    ※
+                </div>
+                <table
+                    class="technical-info [&_tr]:flex max-pad:[&_tr]:flex-col max-pad:[&__tr:last-child_td:first-child]:pb-padding"
+                >
+                    <tbody>
+                        <tr>
+                            <td><h4>Size and Weight</h4></td>
+                            <td>
+                                <Image
+                                    src={iphone17pro}
+                                    alt="iphone17pro"
+                                    width={662}
+                                    height={512}
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><h4>Display</h4></td>
+                            <td>
+                                <span>
+                                    iPhone 17 Pro Super Retina XDR display
+                                    6.3‑inch (diagonal) all‑screen OLED display
+                                    2622‑by‑1206-pixel resolution at 460 ppi The
+                                    iPhone 17 Pro display has rounded corners
+                                    that follow a beautiful curved design, and
+                                    these corners are within a standard
+                                    rectangle. When measured as a standard
+                                    rectangular shape, the screen is 6.27 inches
+                                    diagonally (actual viewable area is less).
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><h4>Chip</h4></td>
+                            <td>
+                                <span>
+                                    A19 Pro chip 6‑core CPU with 2 performance
+                                    and 4 efficiency cores 6‑core GPU with
+                                    Neural Accelerators 16‑core Neural Engine
+                                    Hardware‑accelerated ray tracing
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><h4>Camera</h4></td>
+                            <td>
+                                <span>
+                                    48MP Pro Fusion camera system 48MP Fusion
+                                    Main: 24 mm, ƒ/1.78 aperture,
+                                    second‑generation sensor‑shift optical image
+                                    stabilization, 100% Focus Pixels, support
+                                    for super‑high‑resolution photos (24MP and
+                                    48MP) Also enables 12MP optical-quality 2x
+                                    Telephoto: 48 mm, ƒ/1.78 aperture,
+                                    second‑generation sensor‑shift optical image
+                                    stabilization, 100% Focus Pixels 48MP Fusion
+                                    Ultra Wide: 13 mm, ƒ/2.2 aperture and 120°
+                                    field of view, Hybrid Focus Pixels,
+                                    super‑high‑resolution photos (48MP) 48MP
+                                    Fusion Telephoto: 100 mm (4x), ƒ/2.8
+                                    aperture, Hybrid Focus Pixels, 3D
+                                    sensor‑shift optical image stabilization and
+                                    autofocus, tetraprism design Also enables
+                                    12MP optical-quality 8x Telephoto: 200 mm,
+                                    ƒ/2.8 aperture, Hybrid Focus Pixels, 3D
+                                    sensor‑shift optical image stabilization and
+                                    autofocus, tetraprism design 8x
+                                    optical‑quality zoom in, 2x optical zoom
+                                    out; 16x optical‑quality zoom range Digital
+                                    zoom up to 40x Customizable default lens
+                                    (Fusion Main) Sapphire crystal lens cover
+                                    Adaptive True Tone flash Photonic Engine
+                                    Deep Fusion Smart HDR 5 Next-generation
+                                    portraits with Focus and Depth Control
+                                    Portrait Lighting with six effects Night
+                                    mode Panorama (up to 63MP) Latest-generation
+                                    Photographic Styles Spatial photos 48MP
+                                    macro photography ProRAW Wide color capture
+                                    for photos and Live Photos Lens correction
+                                    (Fusion Ultra Wide) Advanced red-eye
+                                    correction Auto image stabilization Burst
+                                    mode Photo geotagging Image formats
+                                    captured: HEIF, JPEG, and DNG
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><h4>Power and Battery</h4></td>
+                            <td>
+                                <span>
+                                    iPhone 17 Pro Video playback Up to 33 hours
+                                    Video playback (streamed) Up to 30 hours
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="category-info">
+                    Category Details Logitech G305 LIGHTSPEED Wireless Gaming
+                    Mouse, Hero 12K Sensor, 12,000 DPI, Lightweight, 6
+                    Programmable Buttons, 250h Battery Life, On-Board Memory,
+                    PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming
+                    Mouse, Hero 12K Sensor, 12,000 DPI, Lightweight, 6
+                    Programmable Buttons, 250h Battery Life, On-Board Memory,
+                    PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming
+                    Mouse, Hero 12K Sensor, 12,000 DPI, Lightweight, 6
+                    Programmable Buttons, 250h Battery Life, On-Board Memory,
+                    PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming
+                    Mouse, Hero 12K Sensor, 12,000 DPI, Lightweight, 6
+                    Programmable Buttons, 250h Battery Life, On-Board Memory,
+                    PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming
+                    Mouse, Hero 12K Sensor, 12,000 DPI, Lightweight, 6
+                    Programmable Buttons, 250h Battery Life, On-Board Memory,
+                    PC/Mac - Black
+                </div>
             </div>
         </div>
-        <div class="item-markting-info"></div>
+        <div class="item-markting-info">
+            <img
+                src="https://www.apple.com/v/iphone-air/c/images/specs/hero_iphone__cpn1mdefarma_large_2x.jpg"
+                alt=""
+            />
+            <img
+                src="https://www.apple.com/v/iphone-air/c/images/specs/hero_iphone__cpn1mdefarma_large_2x.jpg"
+                alt=""
+            />
+            <img
+                src="https://www.apple.com/v/iphone-air/c/images/specs/hero_iphone__cpn1mdefarma_large_2x.jpg"
+                alt=""
+            />
+        </div>
     </div>
-    <div
+    <!-- <div
         class="fixed bottom-ss-gloabl-padding h-[128px] w-content-inner-width rounded-[10px] backdrop"
     >
         shipe and price info
-    </div>
+    </div> -->
 </ShopSample>
 
 <style lang="less">
