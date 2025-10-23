@@ -26,20 +26,29 @@
         hsl(from var(--color-black) h s l / 0.16),
         hsl(from var(--color-white) h s l / 0.16)
     );
-    --breakpoint-labtop: 825px;
+    --breakpoint-mobile: 781px;
     --breakpoint-pad: 1080px;
 
     --spacing-padding: 16px;
     --spacing-paddingx2: 32px;
+    --spacing-gap: 20px;
+    --spacing-mobile-half: 150px;
+}
+
+@variant max-mobile {
+    :root, :host {
+        --spacing-padding: 10px;
+        --spacing-paddingx2: 20px;
+    }
 }
 
 @theme {
-
     --color-dbs-bg: light-dark(var(--light-gray5), var(--dark-gray1));
     --color-dbs-bg2: light-dark(white, var(--dark-gray3));
 
     --spacing-ss-gloabl-padding: var(--length-global-padding);
     --spacing-golden-ratio: 61.8%;
+    --spacing-golden-ratio-inverse: 38.2%;
 
     /* ShopSample */
     --spacing-content-width: calc(100% - var(--length-sidebar-width));
@@ -52,8 +61,8 @@
     @apply bg-thirdary;
     @supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)) {
         background-color: light-dark(
-            hsl(from var(--color-white3) h s l / 0.88),
-            hsl(from var(--color-black3) h s l / 0.88)
+            hsl(from var(--color-white2) h s l / 0.88),
+            hsl(from var(--color-black) h s l / 0.88)
         );
         backdrop-filter: saturate(180%) blur(20px);
     }
@@ -64,4 +73,8 @@
         margin-bottom: --value(--spacing-*);
         padding-bottom: --value(--spacing-*);
     }
+}
+
+@utility grid-items-* {
+    grid-template-columns: repeat(auto-fill, minmax(--value(--spacing-*, integer, [integer]), 1fr));
 }

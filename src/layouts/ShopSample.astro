@@ -3,7 +3,7 @@ import Layout from "./Layout.astro";
 ---
 
 <Layout>
-    <aside class="max-labtop:backdrop">
+    <aside class="max-mobile:backdrop">
         <input type="checkbox" id="menu" hidden />
         <section>
             <div class="menu">
@@ -131,6 +131,8 @@ import Layout from "./Layout.astro";
 </Layout>
 
 <style lang="scss" is:global>
+    @reference "../styles/global.css";
+
     $sidebar-width: 382px;
     $sidebar-height: 48px;
     $mobile-breakpoint: 825px;
@@ -220,7 +222,7 @@ import Layout from "./Layout.astro";
         }
     }
 
-    @media only screen and (max-width: $mobile-breakpoint) {
+    @variant max-mobile {
         body {
             & > aside {
                 position: fixed;
@@ -272,7 +274,7 @@ import Layout from "./Layout.astro";
         }
     }
 
-    @media only screen and (min-width: $mobile-breakpoint) {
+    @variant min-mobile {
         _::-webkit-full-page-media,
         _:future,
         html {
@@ -309,13 +311,17 @@ import Layout from "./Layout.astro";
         }
     }
 
+    @media only screen and (min-width: $mobile-breakpoint) {
+        
+    }
+
     html {
         background-color: var(--color-primary);
     }
 
     body {
         & > main {
-            padding: $global-padding * 2;
+            padding: var(--spacing-paddingx2);
         }
         footer {
             font-size: 12px;
@@ -367,8 +373,8 @@ import Layout from "./Layout.astro";
                         align-items: center;
                         width: 100%;
                         background: light-dark(
-                            var(--light-gray4),
-                            var(--dark-gray4)
+                            var(--color-white2),
+                            var(--color-black3)
                         );
                         border-radius: 6px;
                         padding-left: 8px;
