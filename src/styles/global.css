@@ -1,8 +1,44 @@
 @import "tailwindcss";
 
-@theme {
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
+
+@theme static {
     --*: initial;
+
+    /* Basic */
+    --color-primary: light-dark(var(--color-white), var(--color-black));
+    --color-secondary: light-dark(var(--color-white2), var(--color-black2));
+    --color-thirdary: light-dark(var(--color-white3), var(--color-black3));
+    --color-sub-primary: #838383;
+    --breakpoint-labtop: 825px;
+}
+
+@theme {
 
     --color-dbs-bg: light-dark(var(--light-gray5), var(--dark-gray1));
     --color-dbs-bg2: light-dark(white, var(--dark-gray3));
+
+    --spacing-ss-gloabl-padding: var(--length-global-padding);
+    --spacing-golden-ratio: 61.8%;
+
+    /* ShopSample */
+    --spacing-content-width: calc(100% - var(--length-sidebar-width));
+    --spacing-content-inner-width: calc(100% - var(--length-sidebar-width) - 2 * var(--length-global-padding));
+    --shadow-card: 2px 4px 12px hsl(from var(--color-black) h s l / 0.08)
+    
+}
+
+@utility backdrop {
+    @apply bg-thirdary;
+    @supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)) {
+        background-color: light-dark(
+            hsl(from var(--color-white3) h s l / 0.88),
+            hsl(from var(--color-black3) h s l / 0.88)
+        );
+        backdrop-filter: saturate(180%) blur(20px);
+    }
 }

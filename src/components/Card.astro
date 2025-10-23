@@ -1,0 +1,25 @@
+---
+interface Props {
+    image: string;
+    imageAlt: string;
+    title: string;
+}
+const { image, imageAlt, title } = Astro.props;
+import { Image } from "astro:assets";
+---
+
+<div class="ss-card">
+    <Image src={image} alt={imageAlt} width={680} height={528} />
+    <span class="ss-title">{title}</span>
+</div>
+
+<style lang="less">
+    .ss-card {
+        overflow: hidden;
+        background-color: var(--color-primary);
+        border-radius: 12px;
+        width: 200px;
+        height: 250px;
+        box-shadow: 2px 4px 12px hsl(from var(--color-black) h s l / 0.08);
+    }
+</style>

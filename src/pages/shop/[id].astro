@@ -1,0 +1,68 @@
+---
+const { id } = Astro.params;
+export const prerender = false; // Not needed in 'server' mode
+import ShopSample from "../../layouts/ShopSample.astro";
+---
+
+<ShopSample>
+    <div slot="sidebar">Shop Sidebar</div>
+
+    <div class="content">
+        <div
+            class="item-product-info flex gap-ss-gloabl-padding max-labtop:flex-col"
+        >
+            <div
+                class="item-image top-ss-gloabl-padding labtop:sticky self-start"
+            >
+                <img
+                    src="https://www.apple.com/v/iphone-air/c/images/specs/hero_iphone__cpn1mdefarma_large_2x.jpg"
+                    alt=""
+                />
+            </div>
+            <div class="item-selection basis-golden-ratio shrink-0">
+                <h2>
+                    Logitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
+                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
+                    250h Battery Life, On-Board Memory, PC/Mac - Black
+                </h2>
+                <div class="price-info">Price details</div>
+                <div class="technical-info">Technical Details Logitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
+                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
+                    250h Battery Life, On-Board Memory, PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
+                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
+                    250h Battery Life, On-Board Memory, PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
+                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
+                    250h Battery Life, On-Board Memory, PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
+                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
+                    250h Battery Life, On-Board Memory, PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
+                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
+                    250h Battery Life, On-Board Memory, PC/Mac - Black</div>
+                <div class="category-info">Category Details Logitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
+                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
+                    250h Battery Life, On-Board Memory, PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
+                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
+                    250h Battery Life, On-Board Memory, PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
+                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
+                    250h Battery Life, On-Board Memory, PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
+                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
+                    250h Battery Life, On-Board Memory, PC/Mac - BlackLogitech G305 LIGHTSPEED Wireless Gaming Mouse, Hero 12K
+                    Sensor, 12,000 DPI, Lightweight, 6 Programmable Buttons,
+                    250h Battery Life, On-Board Memory, PC/Mac - Black</div>
+            </div>
+        </div>
+        <div class="item-markting-info"></div>
+    </div>
+    <div
+        class="fixed bottom-ss-gloabl-padding h-[128px] w-content-inner-width rounded-[10px] backdrop"
+    >
+        shipe and price info
+    </div>
+</ShopSample>
+
+<style lang="less">
+    .content {
+        // display: grid;
+        // grid-template-columns: 382fr 618fr;
+        // grid-template-rows: repeat(3, 1fr);
+    }
+</style>
